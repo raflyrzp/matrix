@@ -39,41 +39,40 @@ def print_matrix(matrix, name="Matrix"):
     for row in matrix:
         print(f"[{' '.join(str(x) for x in row)}]")
 
-if __name__ == "__main__":
-    while True:
-        try:
-            rows_A = int(input("Enter the number of rows for Matrix A: "))
-            cols_A = int(input("Enter the number of columns for Matrix A: "))
-            if rows_A <= 0 or cols_A <= 0:
-                print("Please enter positive integers for matrix size.")
-                continue
-            break
-        except ValueError:
-            print("Input must be an integer. Please try again.")
-
-    print(f"Matrix B must have {cols_A} rows to be compatible for multiplication.")
-    
-    while True:
-        try:
-            rows_B = cols_A
-            cols_B = int(input("Enter the number of columns for Matrix B: "))
-            if cols_B <= 0:
-                print("Please enter a positive integer for columns of Matrix B.")
-                continue
-            break
-        except ValueError:
-            print("Input must be an integer. Please try again.")
-
-    A = input_matrix(rows_A, cols_A, "A")
-    B = input_matrix(rows_B, cols_B, "B")
-
-    print_matrix(A, "Matrix A")
-    print_matrix(B, "Matrix B")
-
+while True:
     try:
-        C = multiply_matrices(A, B)
-        print_matrix(C, "Result of Multiplication (A x B)")
-    except ValueError as e:
-        print(f"Error: {e}")
+        rows_A = int(input("Enter the number of rows for Matrix A: "))
+        cols_A = int(input("Enter the number of columns for Matrix A: "))
+        if rows_A <= 0 or cols_A <= 0:
+            print("Please enter positive integers for matrix size.")
+            continue
+        break
+    except ValueError:
+        print("Input must be an integer. Please try again.")
 
-    print("\nThanks! Adios.")
+print(f"Matrix B must have {cols_A} rows to be compatible for multiplication.")
+
+while True:
+    try:
+        rows_B = cols_A
+        cols_B = int(input("Enter the number of columns for Matrix B: "))
+        if cols_B <= 0:
+            print("Please enter a positive integer for columns of Matrix B.")
+            continue
+        break
+    except ValueError:
+        print("Input must be an integer. Please try again.")
+
+A = input_matrix(rows_A, cols_A, "A")
+B = input_matrix(rows_B, cols_B, "B")
+
+print_matrix(A, "Matrix A")
+print_matrix(B, "Matrix B")
+
+try:
+    C = multiply_matrices(A, B)
+    print_matrix(C, "Result of Multiplication (A x B)")
+except ValueError as e:
+    print(f"Error: {e}")
+
+print("\nThanks! Adios.")
