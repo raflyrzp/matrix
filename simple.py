@@ -26,23 +26,25 @@ def multiply_matrix(a, b):
 
 def print_matrix(matrix, name=""):
     if name:
-        print(f"\n{name} :")
+        print(f"\n{name}:")
     for row in matrix:
-        print(f"[{' '.join(map(str, row))}]")
+        for value in row:
+            print(value, end=" ")
+        print()
 
-if __name__ == "__main__":
-    rows_a = int(input("Enter the number of rows for Matrix A: "))
-    cols_a = int(input("Enter the number of columns for Matrix A: "))
-    matrix_a = input_matrix(rows_a, cols_a, "A")
 
-    rows_b = int(input("Enter the number of rows for Matrix B: "))
-    cols_b = int(input("Enter the number of columns for Matrix B: "))
-    matrix_b = input_matrix(rows_b, cols_b, "B")
+rows_a = int(input("Enter the number of rows for Matrix A: "))
+cols_a = int(input("Enter the number of columns for Matrix A: "))
+matrix_a = input_matrix(rows_a, cols_a, "A")
 
-    print_matrix(matrix_a, "Matrix A")
-    print_matrix(matrix_b, "Matrix B")
+rows_b = int(input("Enter the number of rows for Matrix B: "))
+cols_b = int(input("Enter the number of columns for Matrix B: "))
+matrix_b = input_matrix(rows_b, cols_b, "B")
 
-    multiplication_result = multiply_matrix(matrix_a, matrix_b)
+print_matrix(matrix_a, "Matrix A")
+print_matrix(matrix_b, "Matrix B")
 
-    if multiplication_result:
-        print_matrix(multiplication_result, "Result of Matrix A and B Multiplication")
+multiplication_result = multiply_matrix(matrix_a, matrix_b)
+
+if multiplication_result:
+    print_matrix(multiplication_result, "Result of Matrix A and B Multiplication")
